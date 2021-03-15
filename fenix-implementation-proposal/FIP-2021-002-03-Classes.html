@@ -336,23 +336,60 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regular-methods">
-     Regular Methods
+    <a class="reference internal nav-link" href="#visibility">
+     Visibility
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#static-methods">
-     Static Methods
+    <a class="reference internal nav-link" href="#attributes-and-type-annotation">
+     Attributes and Type Annotation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#methods-decoration">
-     Methods Decoration
+    <a class="reference internal nav-link" href="#methods-and-type-annotation">
+     Methods and Type Annotation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regular-methods">
+       Regular Methods
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#static-methods">
+       Static Methods
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methods-decoration">
+       Methods Decoration
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#core-methods">
+       Core methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inheritance">
+     Inheritance
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#core-methods">
-     Core methods
+    <a class="reference internal nav-link" href="#docstrings">
+     Docstrings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-instance">
+     Class Instance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
     </a>
    </li>
   </ul>
@@ -486,26 +523,31 @@ as well as <code class="docutils literal notranslate"><span class="pre">function
 of a <code class="docutils literal notranslate"><span class="pre">_</span></code> as prefix, e.g. <code class="docutils literal notranslate"><span class="pre">_attr1</span></code> or <code class="docutils literal notranslate"><span class="pre">_attr2</span></code>. Maybe it can
 help to improve the code readability.</p></li>
 </ul>
-<p>“”” Visibility</p>
+<div class="section" id="visibility">
+<h3>Visibility<a class="headerlink" href="#visibility" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
-<p>“”” Attributes and Type Annotation</p>
+</div>
+<div class="section" id="attributes-and-type-annotation">
+<h3>Attributes and Type Annotation<a class="headerlink" href="#attributes-and-type-annotation" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
-<p>“”” Methods and Type Annotation</p>
+</div>
+<div class="section" id="methods-and-type-annotation">
+<h3>Methods and Type Annotation<a class="headerlink" href="#methods-and-type-annotation" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
 <div class="section" id="regular-methods">
-<h3>Regular Methods<a class="headerlink" href="#regular-methods" title="Permalink to this headline">¶</a></h3>
+<h4>Regular Methods<a class="headerlink" href="#regular-methods" title="Permalink to this headline">¶</a></h4>
 <p>…</p>
 </div>
 <div class="section" id="static-methods">
-<h3>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
+<h4>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h4>
 <p>…</p>
 </div>
 <div class="section" id="methods-decoration">
-<h3>Methods Decoration<a class="headerlink" href="#methods-decoration" title="Permalink to this headline">¶</a></h3>
+<h4>Methods Decoration<a class="headerlink" href="#methods-decoration" title="Permalink to this headline">¶</a></h4>
 <p>…</p>
 </div>
 <div class="section" id="core-methods">
-<h3>Core methods<a class="headerlink" href="#core-methods" title="Permalink to this headline">¶</a></h3>
+<h4>Core methods<a class="headerlink" href="#core-methods" title="Permalink to this headline">¶</a></h4>
 <p><strong>Initialization and Construction</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">__new__</span></code>(other)	To get called in an object’s instantiation.</p></li>
@@ -552,10 +594,19 @@ It actually implements behavior for all of the comparison operators (&lt;, ==, !
 <li><p><code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>(name)	Is called when the accessing attribute of a class that does not exist.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__setattr__</span></code>(name, value)	Is called when assigning a value to the attribute of a class.</p></li>
 </ul>
-<p>“”” Inheritance</p>
-<p>“”” Docstrings</p>
-<p>“”” Class Instance</p>
-<p>“”” Example</p>
+</div>
+</div>
+<div class="section" id="inheritance">
+<h3>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="class-instance">
+<h3>Class Instance<a class="headerlink" href="#class-instance" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-fenix notranslate"><div class="highlight"><pre><span></span>
 &quot;&quot;&quot;
 notes:
