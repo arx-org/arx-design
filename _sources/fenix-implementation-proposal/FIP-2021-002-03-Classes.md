@@ -75,7 +75,7 @@ When a section can have more items using the same pattern, it can use the
 can match the following statement: `function my_func(a: int)`
 as well as `function my_func(a: int, b: float)`.
 
-""" General Definition
+### General Definition
 
 The proposal for class on **Fenix** presents the following structure:
 
