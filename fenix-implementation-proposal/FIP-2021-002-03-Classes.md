@@ -111,16 +111,16 @@ Notes:
     help to improve the code readability.
 
 
-""" Visibility
+### Visibility
 
 ...
 
 
-""" Attributes and Type Annotation
+### Attributes and Type Annotation
 
 ...
 
-""" Methods and Type Annotation
+### Methods and Type Annotation
 
 ...
 
@@ -190,16 +190,16 @@ Notes:
   - `__setattr__`(name, value)	Is called when assigning a value to the attribute of a class.
 
 
-""" Inheritance
+### Inheritance
 
 
-""" Docstrings
+### Docstrings
 
 
-""" Class Instance
+### Class Instance
 
 
-""" Example
+### Example
 
 ```fenix
 
