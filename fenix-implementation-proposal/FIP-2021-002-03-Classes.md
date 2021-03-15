@@ -124,20 +124,20 @@ Notes:
 
 ...
 
-"""# Regular Methods
+#### Regular Methods
 
 ...
 
-"""# Static Methods
+#### Static Methods
 
 ...
 
 
-"""# Methods Decoration
+#### Methods Decoration
 
 ...
 
-"""# Core methods
+#### Core methods
 
 
 **Initialization and Construction**
@@ -327,6 +327,9 @@ class DerivedOne(Base)[+]:
 
     _update_attr4()[-]:
       self.attr4 = datetime.now()
+
+    is_positive_number(number: int)[+, static] -> bool:
+      return number >= 0
 
 
 class MyGenericClass<const T, mutable U>:
