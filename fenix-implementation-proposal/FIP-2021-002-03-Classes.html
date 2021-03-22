@@ -444,7 +444,7 @@ resolution: url to discussion (required for Accepted | Rejected | Withdrawn)
 <p><strong>Resolution</strong></p>
 <div class="section" id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
-<p>…</p>
+<p>This document propose, in high level, the structure for <code class="docutils literal notranslate"><span class="pre">classes</span></code> and <code class="docutils literal notranslate"><span class="pre">interfaces</span></code>.</p>
 </div>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
@@ -525,7 +525,7 @@ as well as <code class="docutils literal notranslate"><span class="pre">function
 <ul class="simple">
 <li><p>Visibility should be defined explicitly</p></li>
 <li><p>Mutability should be defined explicitly</p></li>
-<li><p>For private <code class="docutils literal notranslate"><span class="pre">[-]</span></code> and protected <code class="docutils literal notranslate"><span class="pre">[#]</span></code> attributes it is optional the usage
+<li><p>For private <code class="docutils literal notranslate"><span class="pre">private</span></code> and protected <code class="docutils literal notranslate"><span class="pre">protected</span></code> attributes it is optional the usage
 of a <code class="docutils literal notranslate"><span class="pre">_</span></code> as prefix, e.g. <code class="docutils literal notranslate"><span class="pre">_attr1</span></code> or <code class="docutils literal notranslate"><span class="pre">_attr2</span></code>. Maybe it can
 help to improve the code readability.</p></li>
 </ul>
@@ -624,36 +624,42 @@ interface IBase:
   &quot;&quot;&quot;
   title: Define the interface for Base classes.
   &quot;&quot;&quot;
+  settings:
+    access: public
+
   attributes:
-    _attr1: [-] Nullable[int]
-    _attr2: [#] mutable float
-    attr3: [+] constant string = &quot;default&quot;
+    _attr1: private Nullable[int]
+    _attr2: protected mutable float
+    attr3: public constant string = &quot;default&quot;
 
   methods:
-    add(number1: int32, number2: int32)[+] -&gt; int32
-    sub(number1: int32, number2: int32)[+] -&gt; int32
+    add: public(number1: int32, number2: int32) -&gt; int32
+    sub: public(number1: int32, number2: int32) -&gt; int32
 
 
-class Base(IBase)[+]:
+class Base(IBase):
   &quot;&quot;&quot;
   title: The Base class aims to organize a simple and util set of attributes
     and methods to be reused for derived classes.
   &quot;&quot;&quot;
+  settings:
+    access: public
+    abstract: true
 
   attributes:
-    ### Attribute used as a first information
-    _attr1: [-] mutable [int|float]?
-    ### Attribute used as a second information
-    _attr2: [#] mutable float
-    ### Attribute used as a third information
-    attr3: [+] constant string = &quot;default&quot;
+    &gt;&gt; Attribute used as a first information
+    _attr1: private mutable [int|float]?
+    &gt;&gt; Attribute used as a second information
+    _attr2: protected mutable float
+    &gt;&gt; Attribute used as a third information
+    attr3: public constant string = &quot;default&quot;
 
   methods:
-    __init__(
+    __init__: public(
       attr1: [int|float]?,
       attr2: mutable float,
       attr3: constant string = &quot;default2&quot;
-    )[+]:
+    ):
       &quot;&quot;&quot;
       title: Initialize the Base instance.
 
@@ -675,11 +681,11 @@ class Base(IBase)[+]:
       self.attr2 = attr2
       self.attr3 = attr3
 
-    add(
+    add: public(
       (number1: constant int32, number2: constant int32) -&gt; int32,
       (number1: constant int64, number2: constant int64) -&gt; int64,
       (number1: constant float32, number2: constant float32) -&gt; float32
-    )[+]:
+    ):
       &quot;&quot;&quot;
       title: Add two integer and return the result.
 
@@ -691,27 +697,30 @@ class Base(IBase)[+]:
       &quot;&quot;&quot;
       return number1 + number2
 
-    add(*args: Tuple&lt;string&gt;)[+] -&gt; string:
+    add: public(*args: Tuple&lt;string&gt;)public -&gt; string:
       return &#39;&#39;.join(args, sep=&#39;, &#39;)
 
-    add(value1: constant &lt;T&gt;, value2: constant &lt;U&gt;)[+]:
+    add: public(value1: constant &lt;T&gt;, value2: constant &lt;U&gt;)public:
       raise Exception(
         &quot;The operation between {type(value1)} and {type(value2)} &quot; +
         &quot; is not supported&quot;.
       )
 
 
-class DerivedOne(Base)[+]:
+class DerivedOne(Base):
+  settings:
+    access: public
+
   attributes:
-    attr4: [+] mutable datetime
+    attr4: public mutable datetime
 
   methods:
-    __init__(
+    __init__: public(
       attr1: mutable nullable int,
       attr2: mutable float,
       attr3: constant string = &quot;default2&quot;,
       attr4: datetime = datetime.now()
-    )[+]:
+    ):
       &quot;&quot;&quot;
       title: Initialize the Derived class.
 
@@ -725,7 +734,7 @@ class DerivedOne(Base)[+]:
       self.__base__[Base].__init__(attr1, attr2, attr3)
       self.attr4 = attr4
 
-    sub(number1: int32, number2: int32)[+] -&gt; int32:
+    sub: public(number1: int32, number2: int32) -&gt; int32:
       &quot;&quot;&quot;
       title: Subtract two integer and return the result.
 
@@ -737,7 +746,7 @@ class DerivedOne(Base)[+]:
       &quot;&quot;&quot;
       return number1 + number2
 
-    _update_attr4()[-]:
+    _update_attr4:private():
       self.attr4 = datetime.now()
 
     is_positive_number(number: int)[+, static] -&gt; bool:
@@ -745,18 +754,36 @@ class DerivedOne(Base)[+]:
 
 
 class MyGenericClass&lt;const T, mutable U&gt;:
+  settings:
+    access: public
+
   attributes:
-    attr1: [+] &lt;T&gt;
-    attr2: [+] &lt;U&gt;
+    attr1: public &lt;T&gt;
+    attr2: public &lt;U&gt;
 
   methods:
-    __init__(attr1: &lt;T&gt;, attr2: &lt;U&gt;)[+]:
+    __init__: public(attr1: &lt;T&gt;, attr2: &lt;U&gt;)public:
       self.attr1 = attr1
       self.attr2 = attr2
 
 
+class MyClassStatic:
+  settings:
+    access: public
+
+  attributes:
+    attr1: static public mutable string;
+
+  methods:
+    myprint: public,static(value: Any):
+      print(&#39;Value:&#39;, value)
+
+
 derived_obj = DerivedOne(attr1=null, attr2=2.5)
 generic_obj = MyGenericClass&lt;int32, float32&gt;(2, 2.2)
+
+MyClassStatic.attr1 = &quot;My Attribute 1&quot;
+MyClassStatic.print(MyClassStatic.attr1)
 
 </pre></div>
 </div>

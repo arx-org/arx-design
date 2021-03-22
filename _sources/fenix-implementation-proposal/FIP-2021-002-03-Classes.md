@@ -22,7 +22,7 @@ resolution: url to discussion (required for Accepted | Rejected | Withdrawn)
 
 ## Abstract
 
-...
+This document propose, in high level, the structure for `classes` and `interfaces`.
 
 ## Motivation
 
@@ -106,7 +106,7 @@ The proposal for class on **Fenix** presents the following structure:
 Notes:
   - Visibility should be defined explicitly
   - Mutability should be defined explicitly
-  - For private `[-]` and protected `[#]` attributes it is optional the usage
+  - For private `private` and protected `protected` attributes it is optional the usage
     of a `_` as prefix, e.g. `_attr1` or `_attr2`. Maybe it can
     help to improve the code readability.
 
@@ -212,36 +212,42 @@ interface IBase:
   """
   title: Define the interface for Base classes.
   """
+  settings:
+    access: public
+
   attributes:
-    _attr1: [-] Nullable[int]
-    _attr2: [#] mutable float
-    attr3: [+] constant string = "default"
+    _attr1: private Nullable[int]
+    _attr2: protected mutable float
+    attr3: public constant string = "default"
 
   methods:
-    add(number1: int32, number2: int32)[+] -> int32
-    sub(number1: int32, number2: int32)[+] -> int32
+    add: public(number1: int32, number2: int32) -> int32
+    sub: public(number1: int32, number2: int32) -> int32
 
 
-class Base(IBase)[+]:
+class Base(IBase):
   """
   title: The Base class aims to organize a simple and util set of attributes
     and methods to be reused for derived classes.
   """
+  settings:
+    access: public
+    abstract: true
 
   attributes:
-    ### Attribute used as a first information
-    _attr1: [-] mutable [int|float]?
-    ### Attribute used as a second information
-    _attr2: [#] mutable float
-    ### Attribute used as a third information
-    attr3: [+] constant string = "default"
+    >> Attribute used as a first information
+    _attr1: private mutable [int|float]?
+    >> Attribute used as a second information
+    _attr2: protected mutable float
+    >> Attribute used as a third information
+    attr3: public constant string = "default"
 
   methods:
-    __init__(
+    __init__: public(
       attr1: [int|float]?,
       attr2: mutable float,
       attr3: constant string = "default2"
-    )[+]:
+    ):
       """
       title: Initialize the Base instance.
 
@@ -263,11 +269,11 @@ class Base(IBase)[+]:
       self.attr2 = attr2
       self.attr3 = attr3
 
-    add(
+    add: public(
       (number1: constant int32, number2: constant int32) -> int32,
       (number1: constant int64, number2: constant int64) -> int64,
       (number1: constant float32, number2: constant float32) -> float32
-    )[+]:
+    ):
       """
       title: Add two integer and return the result.
 
@@ -279,27 +285,30 @@ class Base(IBase)[+]:
       """
       return number1 + number2
 
-    add(*args: Tuple<string>)[+] -> string:
+    add: public(*args: Tuple<string>)public -> string:
       return ''.join(args, sep=', ')
 
-    add(value1: constant <T>, value2: constant <U>)[+]:
+    add: public(value1: constant <T>, value2: constant <U>)public:
       raise Exception(
         "The operation between {type(value1)} and {type(value2)} " +
         " is not supported".
       )
 
 
-class DerivedOne(Base)[+]:
+class DerivedOne(Base):
+  settings:
+    access: public
+
   attributes:
-    attr4: [+] mutable datetime
+    attr4: public mutable datetime
 
   methods:
-    __init__(
+    __init__: public(
       attr1: mutable nullable int,
       attr2: mutable float,
       attr3: constant string = "default2",
       attr4: datetime = datetime.now()
-    )[+]:
+    ):
       """
       title: Initialize the Derived class.
 
@@ -313,7 +322,7 @@ class DerivedOne(Base)[+]:
       self.__base__[Base].__init__(attr1, attr2, attr3)
       self.attr4 = attr4
 
-    sub(number1: int32, number2: int32)[+] -> int32:
+    sub: public(number1: int32, number2: int32) -> int32:
       """
       title: Subtract two integer and return the result.
 
@@ -325,7 +334,7 @@ class DerivedOne(Base)[+]:
       """
       return number1 + number2
 
-    _update_attr4()[-]:
+    _update_attr4:private():
       self.attr4 = datetime.now()
 
     is_positive_number(number: int)[+, static] -> bool:
@@ -333,18 +342,36 @@ class DerivedOne(Base)[+]:
 
 
 class MyGenericClass<const T, mutable U>:
+  settings:
+    access: public
+
   attributes:
-    attr1: [+] <T>
-    attr2: [+] <U>
+    attr1: public <T>
+    attr2: public <U>
 
   methods:
-    __init__(attr1: <T>, attr2: <U>)[+]:
+    __init__: public(attr1: <T>, attr2: <U>)public:
       self.attr1 = attr1
       self.attr2 = attr2
 
 
+class MyClassStatic:
+  settings:
+    access: public
+
+  attributes:
+    attr1: static public mutable string;
+
+  methods:
+    myprint: public,static(value: Any):
+      print('Value:', value)
+
+
 derived_obj = DerivedOne(attr1=null, attr2=2.5)
 generic_obj = MyGenericClass<int32, float32>(2, 2.2)
+
+MyClassStatic.attr1 = "My Attribute 1"
+MyClassStatic.print(MyClassStatic.attr1)
 
 ```
 
