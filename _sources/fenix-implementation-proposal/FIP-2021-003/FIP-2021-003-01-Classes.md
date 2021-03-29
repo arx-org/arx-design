@@ -334,7 +334,7 @@ class DerivedOne(Base):
       """
       return number1 + number2
 
-    _update_attr4:private():
+    _update_attr4: private():
       self.attr4 = datetime.now()
 
     is_positive_number(number: int)[+, static] -> bool:
@@ -350,7 +350,7 @@ class MyGenericClass<const T, mutable U>:
     attr2: public <U>
 
   methods:
-    __init__: public(attr1: <T>, attr2: <U>)public:
+    __init__: public (attr1: <T>, attr2: <U>)public:
       self.attr1 = attr1
       self.attr2 = attr2
 
@@ -363,7 +363,7 @@ class MyClassStatic:
     attr1: static public mutable string;
 
   methods:
-    myprint: public,static(value: Any):
+    myprint: static public(value: Any):
       print('Value:', value)
 
 
