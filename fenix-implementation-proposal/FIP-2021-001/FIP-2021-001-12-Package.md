@@ -33,6 +33,8 @@ resolution: url to discussion (required for Accepted | Rejected | Withdrawn)
 **Key points:**
 
 * General Definition
+* Result structure
+* Package management
 
 **Conventions**
 
@@ -42,6 +44,15 @@ No specific conventions applies for this proposal.
 ### General Definition
 
 TBD
+
+### Result Structure
+
+TBD
+
+### Package management
+
+Conda channel https://anaconda.org/fenixlang or maybe use an own server with https://github.com/mamba-org/quetz
+
 
 ### Examples
 
