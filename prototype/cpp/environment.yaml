@@ -1,0 +1,18 @@
+name: fenix-cpp
+channels:
+  - conda-forge
+dependencies:
+  - c-compiler
+  - compiler-rt
+  - clang
+  - clangdev
+  - cmake
+  - cxx-compiler
+  - gdb
+  - glog
+  - gtest
+  - libclang-cpp
+  - llvm
+  - llvmdev
+  - make
+  - ninja
