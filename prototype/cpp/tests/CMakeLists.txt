@@ -1,11 +1,25 @@
-cmake_minimum_required(VERSION 3.0)
-project(fenix-test)
+cmake_minimum_required(VERSION 3.14)
+project(fenix_project_test
+    DESCRIPTION "Fenix CPP tests."
+    LANGUAGES CXX
+)
+set(CMAKE_CXX_STANDARD 17)
 
 get_filename_component(PARENT_DIR ../ ABSOLUTE)
 
-# gtest:start
+find_package (fenix REQUIRED)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules")
+set(FENIX_TEST_SOURCES
+    ${PARENT_DIR}/tests/test_main.cpp
+    ${PARENT_DIR}/tests/test_types.cpp
+)
+
+add_executable(test_fenix ${FENIX_TEST_SOURCES})
+
+target_link_libraries(test_fenix fenix)
+
+# =========
+# gtest:start
 
 include(FetchContent)
 FetchContent_Declare(
@@ -16,26 +30,9 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
+target_link_libraries(test_fenix gtest_main)
+include(GoogleTest)
+gtest_discover_tests(test_fenix)
 
 # gtest:end
-
-set(FENIX_TEST_DIR "${FENIX_ROOT}/tests/")
-set(FENIX_TEST_SOURCES
-    ${FENIX_TEST_DIR}/test_main.cpp
-    ${FENIX_TEST_DIR}/test_types.cpp
-)
-
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR})
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${PARENT_DIR}/include)
-
-set(TEST_BASE_PATH "./tmp")
-add_definitions("-DBASE_PATH=\"${TEST_BASE_PATH}\"")
-
-# e.g.: add_executable(ResultTest ResultATest.cpp ResultB.cpp)
-add_executable(test_fenix ${FENIX_TEST_SOURCES})
-
-target_link_libraries(test_fenix gtest_main)
-
-include(GoogleTest)
-
-gtest_discover_tests(test_fenix)
+# =========

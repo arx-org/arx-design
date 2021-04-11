@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include <gtest/gtest.h>
 #include <fenix/types/numeric.h>
+#include <gtest/gtest.h>
 
 
 
@@ -51,10 +51,4 @@ TEST(TestNumeric, in64_create) {
     int raw_value = 1;
     Integer64 result = Integer64(raw_value);
     EXPECT_EQ(result.value, raw_value);
-}
-
-
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

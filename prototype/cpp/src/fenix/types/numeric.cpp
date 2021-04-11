@@ -1,7 +1,7 @@
 #include <cstdint>
 
-#include "types/base.h"
-#include "types/numeric.h"
+#include <fenix/types/base.h>
+#include <fenix/types/numeric.h>
 
 
 /* Integer8 */

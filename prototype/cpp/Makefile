@@ -1,5 +1,7 @@
 CC=${CONDA_PREFIX}/bin/clang
 CXX=${CONDA_PREFIX}/bin/clang++
+# CC=${CONDA_PREFIX}/bin/gcc
+# CXX=${CONDA_PREFIX}/bin/g++
 
 SHELL := /bin/bash
 MAKEFILE_DIR = $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -21,10 +23,23 @@ format:
 
 .PHONY: build
 build:
-	mkdir -p build && \
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=${CONDA_PREFIX} \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_C_COMPILER=${CC} \
+		-DCMAKE_CXX_COMPILER=${CXX} \
+		-GNinja \
+		-S . \
+		-B build \
+		&& \
 	cd build && \
-	cmake -DCMAKE_BUILD_TYPE=Release -GNinja .. && \
 	ninja
+
+
+.PHONY: install
+install:
+	cd build && \
+	ninja install
 
 
 .PHONY: rebuild
@@ -33,9 +48,13 @@ rebuild: clean build
 
 .PHONY: debug
 debug:
-	mkdir -p build
+	cmake \
+		-DCMAKE_BUILD_TYPE=Debug \
+		-GNinja \
+		-S . \
+		-B build\
+		&& \
 	cd build && \
-	cmake -DCMAKE_BUILD_TYPE=Debug -GNinja .. && \
 	ninja
 
 
@@ -59,14 +78,24 @@ rebuild-and-debug: clean debug
 	gdb ./fenix
 
 
-.PHONY: sanity_tests
-sanity_tests: rebuild
-	export LD_LIBRARY_PATH=lib/:${LD_LIBRARY_PATH} && \
+.PHONY: clean_tests
+clean_tests:
 	cd tests && \
-	rm -rf build && \
-	mkdir -p build && \
+	rm -rf build/*
+
+
+.PHONY: sanity_tests
+sanity_tests: clean_tests # rebuild install
+	cd tests && \
+	export LD_LIBRARY_PATH=${CONDA_PREFIX}/lib:${LD_LIBRARY_PATH} && \
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=${CONDA_PREFIX}/bin \
+		-DCMAKE_C_COMPILER=${CC} \
+		-DCMAKE_CXX_COMPILER=${CXX} \
+		-Dfenix_DIR=${CONDA_PREFIX}/share/fenix/cmake \
+		-S . \
+		-B build \
+		&& \
+	cmake --build build && \
 	cd build && \
-	cmake -DENABLE_ASAN=on -GNinja -DFENIX_ROOT=${FENIX_ROOT} .. && \
-	ninja && \
-	export ASAN_OPTIONS=alloc_dealloc_mismatch=0:handle_segv=0 && \
 	ctest
