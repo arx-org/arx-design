@@ -18,7 +18,7 @@ clean:
 
 .PHONY: format
 format:
-	clang-format cpp/* cpp/**/* -i
+	clang-format ./src/* ./src/**/* ./include/* ./include/**/*  -i
 
 
 .PHONY: build

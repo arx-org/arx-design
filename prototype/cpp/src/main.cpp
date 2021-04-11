@@ -1,7 +1,4 @@
+#include <fenix/types/numeric.h>
 #include <iostream>
-#include "types/numeric.h"
 
-
-int main() {
-    return 0;
-}
+int main() { return 0; }

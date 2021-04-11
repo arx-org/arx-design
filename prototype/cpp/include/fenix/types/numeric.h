@@ -46,8 +46,6 @@ public:
 
     /* methods */
 
-    bool check();
-
     /* operators */
 
     Integer8 operator+(const Integer8& other) const;
