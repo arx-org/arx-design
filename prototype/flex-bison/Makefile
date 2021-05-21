@@ -1,7 +1,7 @@
 # LDFLAGS="-L${CONDA_PREFIX}/lib ${LDFLAGS}"
 CC=gcc
 CXX=g++
-
+CFLAGS= -g -Wall -Wno-unused -Wno-write-strings
 
 .PHONY: build-parser
 build-parser:
@@ -15,7 +15,7 @@ build-lexer:
 
 .PHONY: compile-lexer-parser
 compile-lexer-parser: build-lexer
-	$(CC) fenix.lex.yy.c -lfl -v -o fenix
+	$(CXX) fenix.lex.yy.c -lfl -v -o fenix
 
 
 .PHONY: compile-source

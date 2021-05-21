@@ -3,10 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* to use yylex from C */
+extern "C" int yylex();
+
 /* yyval struct */
 struct yylval_struct {
     int intVal;
     float floatVal;
+    bool boolVal;
 };
 
 /* tokens */
@@ -44,6 +48,7 @@ enum yytokentype {
     /* data types */
     LITERAL_INTEGER = 400,
     LITERAL_FLOAT = 401,
+    LITERAL_BOOL = 402,
 
     /* system */
     ERROR = 500,
@@ -131,6 +136,7 @@ INT         {DIGIT}+
 FLOAT       {DIGIT}+{DOT}{DIGIT}+
 LETTER      [a-zA-Z]
 STRING      {LETTER}+
+BOOL        {TRUE}|{FALSE}
 
 ALL      .
 
@@ -170,7 +176,7 @@ AND                 and
 
 {INT}               { printf("INT %s\n", yytext); yylval.intVal = atoi(yytext); return LITERAL_INTEGER; }
 {FLOAT}             { printf("FLOAT %s\n", yytext); yylval.floatVal = atof(yytext); return LITERAL_FLOAT; }
-
+{BOOL}              { printf("BOOL %s\n", yytext); yylval.boolVal = (yytext=="true"? true : false); return LITERAL_BOOL; }
 
  /* comments */
 
@@ -200,7 +206,7 @@ AND                 and
 {DELETE}            { printf("DELETE\n"); return DELETE; }
 {TRUE}              { printf("TRUE\n"); return TRUE; }
 {FALSE}             { printf("FALSE\n"); return FALSE; }
-{NULL}              { printf("NULL\n"); return NULL; }
+{NULL}              { printf("NULL\n"); return _NULL_; }
 {OR}                { printf("OR\n"); return OR; }
 {AND}               { printf("AND\n"); return AND; }
 
