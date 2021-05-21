@@ -1,10 +1,12 @@
+name: fenix-flex-bison
 channels:
   - conda-forge
 dependencies:
-  - flex
+  - bison
   - c-compiler
   - compiler-rt
   - clang
   - clangdev
   - cxx-compiler
+  - flex
   - make

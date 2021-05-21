@@ -9,17 +9,18 @@ build-parser:
 
 .PHONY: build-lexer
 build-lexer:
-	flex scanner.lex
+	rm -f fenix.lex.yy.c
+	flex --verbose --outfile fenix.lex.yy.c fenix.lex
 
 
-.PHONY: combine-lexer-parser
-combine-lexer-parser:
-	$(CXX) lex.yy.c -lfl -v
+.PHONY: compile-lexer-parser
+compile-lexer-parser: build-lexer
+	$(CC) fenix.lex.yy.c -lfl -v -o fenix
 
 
 .PHONY: compile-source
 compile-source:
-	./a.out source.ect
+	cat source.fnx | ./fenix
 
 
 .PHONY: all

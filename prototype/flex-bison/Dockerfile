@@ -14,7 +14,6 @@ RUN apt-get -qq update --yes \
         bsdmainutils \
         flex \
         bison \
-        yacc \
         vim \
     && rm -rf /var/lib/apt/lists/*
 

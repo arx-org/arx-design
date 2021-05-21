@@ -1,0 +1,5 @@
+.viminfo
+*.out
+*lex.yy.c
+.bash*
+fenix
