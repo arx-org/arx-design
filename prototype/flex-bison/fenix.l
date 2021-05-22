@@ -2,16 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "fenix.h"
 
 /* to use yylex from C */
 extern "C" int yylex();
 
-/* yyval struct */
-struct yylval_struct {
-    int intVal;
-    float floatVal;
-    bool boolVal;
-};
 
 /* tokens */
 
@@ -29,6 +24,9 @@ enum yytokentype {
     OP_GT = 267,
     OP_GE = 268,
     OP_DIFF = 269,
+    OP_POW = 270,
+    OP_SQRT = 271,
+    OP_MOD = 272,
 
     /* punctuactions */
     SEMICOLON = 300,
@@ -76,19 +74,25 @@ enum yytokentype {
     DELETE = 619,
     TRUE = 620,
     FALSE = 621,
-    _NULL_ = 622,
+    NUL = 622,
     OR = 623,
     AND = 624,
 
     /* comments */
 
     COMMENT_SINGLE = 800
-
 };
 
-struct yylval_struct yylval;
+int yylval;
 
 %}
+
+/* options */
+
+%option c++
+%option noyywrap
+%option warn
+%option yylineno
 
 /* operators */
 
@@ -104,6 +108,9 @@ OP_LE       "<="
 OP_GT       ">"
 OP_GE       ">="
 OP_DIFF     "!="
+OP_POW      "^"
+OP_SQRT     "\/"
+OP_MOD      "%"
 
 
 /* COMMENTS */
@@ -165,7 +172,7 @@ NOT                 not
 DELETE              delete
 TRUE                true
 FALSE               false
-NULL                null
+NUL                 null
 OR                  or
 AND                 and
 
@@ -174,9 +181,9 @@ AND                 and
 
  /* data type */
 
-{INT}               { printf("INT %s\n", yytext); yylval.intVal = atoi(yytext); return LITERAL_INTEGER; }
-{FLOAT}             { printf("FLOAT %s\n", yytext); yylval.floatVal = atof(yytext); return LITERAL_FLOAT; }
-{BOOL}              { printf("BOOL %s\n", yytext); yylval.boolVal = (yytext=="true"? true : false); return LITERAL_BOOL; }
+{INT}               { printf("INT %s\n", yytext); yylval = atoi(yytext); return LITERAL_INTEGER; }
+{FLOAT}             { printf("FLOAT %s\n", yytext); yylval = (int) atof(yytext); return LITERAL_FLOAT; }
+{BOOL}              { printf("BOOL %s\n", yytext); yylval = (int) (yytext=="true"? true : false); return LITERAL_BOOL; }
 
  /* comments */
 
@@ -206,7 +213,7 @@ AND                 and
 {DELETE}            { printf("DELETE\n"); return DELETE; }
 {TRUE}              { printf("TRUE\n"); return TRUE; }
 {FALSE}             { printf("FALSE\n"); return FALSE; }
-{NULL}              { printf("NULL\n"); return _NULL_; }
+{NUL}               { printf("NULL\n"); return NUL; }
 {OR}                { printf("OR\n"); return OR; }
 {AND}               { printf("AND\n"); return AND; }
 
@@ -225,6 +232,9 @@ AND                 and
 {OP_GT}             { printf("OP_GT\n"); return OP_GT; }
 {OP_GE}             { printf("OP_GE\n"); return OP_GE; }
 {OP_DIFF}           { printf("OP_DIFF\n"); return OP_DIFF; }
+{OP_POW}            { printf("OP_POW\n"); return OP_POW; }
+{OP_SQRT}           { printf("OP_SQRT\n"); return OP_SQRT; }
+{OP_MOD}            { printf("OP_MOD\n"); return OP_MOD; }
 
  /* punctuactions */
 
@@ -242,4 +252,14 @@ AND                 and
 
  /* errors */
 
-{ALL}               { printf("No match for text (%s)\n", yytext); return ERROR; }
+{ALL}                   { printf("No match for text (%s)\n", yytext); return ERROR; }
+
+
+%%
+
+int main( int /* argc */, char** /* argv */  )
+{
+    FlexLexer* lexer = new yyFlexLexer;
+    while(lexer->yylex() != 0);
+    return 0;
+}

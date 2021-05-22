@@ -1,25 +1,36 @@
 # LDFLAGS="-L${CONDA_PREFIX}/lib ${LDFLAGS}"
-CC=gcc
-CXX=g++
-CFLAGS= -g -Wall -Wno-unused -Wno-write-strings
+COMPILER=g++
+CFLAGS= -g -Wall -Wno-unused -Wno-write-strings -v
 
-.PHONY: build-parser
-build-parser:
-	bison parser.y
+
+.PHONY: build-clean
+build-clean:
+	rm -f fenix.lex.yy.c
+	rm -f fenix.tab.c
+	rm -f fenix
+
 
 .PHONY: build-lexer
 build-lexer:
-	rm -f fenix.lex.yy.c
-	flex --verbose --outfile fenix.lex.yy.c fenix.lex
+	rm -f fenix.lex.yy.cc fenix.lex.yy.c
+	flex --verbose --outfile fenix.lex.yy.cc fenix.l
+
+
+.PHONY: build-parser
+build-parser:
+	rm -f fenix.tab.c fenix.tab.cc
+	# TODO use c++
+	# bison --language c++ fenix.y
+	bison fenix.y
 
 
 .PHONY: compile-lexer-parser
-compile-lexer-parser: build-lexer
-	$(CXX) fenix.lex.yy.c -lfl -v -o fenix
+compile-lexer-parser: build-clean build-lexer
+	$(COMPILER) ${CFLAGS} -I include fenix.lex.yy.cc -lfl -o fenix
 
 
-.PHONY: compile-source
-compile-source:
+.PHONY: test-lexer
+test-lexer:
 	cat source.fnx | ./fenix
 
 
