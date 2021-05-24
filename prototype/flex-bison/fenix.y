@@ -1,17 +1,22 @@
-%debug
-/* TODO: use c++ */
-/* %language "c++" */
-
 %{
-#include <stdio.h>
+#include <iostream>
 #include <math.h>
-/* #include <string> */
-/* #include <bits/stdc++.h> */
+#include <string>
+#include <bits/stdc++.h>
 #include "fenix.h"
 
-void yyerror(const char* s);
+extern "C" int yylex();
+
+void yyerror(const std::string s);
+
 
 %}
+
+%union {
+    int integer_;
+    float float_;
+    Boolean boolean_;
+}
 
 /* declare tokens */
 
@@ -49,7 +54,7 @@ void yyerror(const char* s);
 %token DELETE
 %token TRUE
 %token FALSE
-%token _NULL_
+%token NUL
 %token OR
 %token AND
 
@@ -92,16 +97,19 @@ void yyerror(const char* s);
 
 
 /* Declare types for the grammar's non-terminals. */
-%type <program> program
-%type <program> expr
+%type <ival> expr
 
 %%
-
-program: /* nothing */
-    expr
-;
 
 expr:
+    ERROR {}
 ;
 
 %%
+
+
+/* This function is called automatically when Bison detects a parse error. */
+void yyerror(const std::string s)
+{
+    std::cerr << "\"" << s << " at or near " << std::endl;
+}

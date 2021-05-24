@@ -1,98 +1,17 @@
+/* options */
+%option noyywrap
+
 %{
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "fenix.h"
+#include "fenix.tab.h"
 
-/* to use yylex from C */
 extern "C" int yylex();
-
-
-/* tokens */
-
-enum yytokentype {
-    /* operators */
-    OP_ADD = 258,
-    OP_SUB = 259,
-    OP_MUL = 260,
-    OP_DIV = 261,
-    OP_EQ = 262,
-    OP_ASSIGN = 263,
-    OP_NEGATE = 264,
-    OP_LT = 265,
-    OP_LE = 266,
-    OP_GT = 267,
-    OP_GE = 268,
-    OP_DIFF = 269,
-    OP_POW = 270,
-    OP_SQRT = 271,
-    OP_MOD = 272,
-
-    /* punctuactions */
-    SEMICOLON = 300,
-    DOT = 301,
-    BRACKET_ANGLE_OPEN = 302,
-    BRACKET_ANGLE_CLOSE = 303,
-    BRACKET_CURLY_OPEN = 304,
-    BRACKET_CURLY_CLOSE = 305,
-    BRACKET_SQUARE_OPEN = 306,
-    BRACKET_SQUARE_CLOSE = 307,
-    PAREN_OPEN = 308,
-    PAREN_CLOSE = 309,
-    NEWLINE = 310,
-    QUOTE_FORMAT = 311,
-    QUOTE_SIMPLE = 312,
-
-    /* data types */
-    LITERAL_INTEGER = 400,
-    LITERAL_FLOAT = 401,
-    LITERAL_BOOL = 402,
-
-    /* system */
-    ERROR = 500,
-
-    /* keywords */
-    CLASS = 600,
-    FUNCTION = 601,
-    FROM = 602,
-    IMPORT = 603,
-    WITH = 604,
-    IF = 605,
-    CASE = 606,
-    WHILE = 607,
-    FOR = 608,
-    IN = 609,
-    IS = 610,
-    HAS = 611,
-    RAISE = 612,
-    VAR = 613,
-    CONST = 614,
-    TEMPLATE = 615,
-    INHERITS = 616,
-    INTERFACE = 617,
-    NOT = 618,
-    DELETE = 619,
-    TRUE = 620,
-    FALSE = 621,
-    NUL = 622,
-    OR = 623,
-    AND = 624,
-
-    /* comments */
-
-    COMMENT_SINGLE = 800
-};
-
-int yylval;
 
 %}
 
-/* options */
-
-%option c++
-%option noyywrap
-%option warn
-%option yylineno
 
 /* operators */
 
@@ -181,9 +100,9 @@ AND                 and
 
  /* data type */
 
-{INT}               { printf("INT %s\n", yytext); yylval = atoi(yytext); return LITERAL_INTEGER; }
-{FLOAT}             { printf("FLOAT %s\n", yytext); yylval = (int) atof(yytext); return LITERAL_FLOAT; }
-{BOOL}              { printf("BOOL %s\n", yytext); yylval = (int) (yytext=="true"? true : false); return LITERAL_BOOL; }
+{INT}               { printf("INT %s\n", yytext); yylval.integer_ = atoi(yytext); return LITERAL_INTEGER; }
+{FLOAT}             { printf("FLOAT %s\n", yytext); yylval.float_ = atof(yytext); return LITERAL_FLOAT; }
+{BOOL}              { printf("BOOL %s\n", yytext); yylval.boolean_ = (yytext=="true"? 1 : 0); return LITERAL_BOOL; }
 
  /* comments */
 
@@ -254,12 +173,30 @@ AND                 and
 
 {ALL}                   { printf("No match for text (%s)\n", yytext); return ERROR; }
 
-
 %%
 
-int main( int /* argc */, char** /* argv */  )
-{
-    FlexLexer* lexer = new yyFlexLexer;
-    while(lexer->yylex() != 0);
+
+int main(int argc, char **argv) {
+    int i;
+
+    /* just read stdin */
+    if(argc < 2) {
+        while (yylex() != 0);
+        return 0;
+    }
+
+    for(i = 1; i < argc; i++) {
+        FILE *f = fopen(argv[i], "r");
+
+        if(!f) {
+            perror(argv[i]);
+            return (1);
+        }
+
+        yyrestart(f);
+        while (yylex() != 0) ;
+        fclose(f);
+    }
+
     return 0;
 }

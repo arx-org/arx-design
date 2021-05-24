@@ -1,7 +1,8 @@
 .viminfo
 *.out
-fenix.lex.yy.*
-fenix.tab.*
+*.output
+*.lex.yy.*
+*.tab.*
 .bash*
 fenix
 location.hh
