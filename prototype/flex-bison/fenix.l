@@ -11,6 +11,13 @@
 
 extern "C" int yylex();
 
+
+char string_buf[MAX_STR_CONST];
+char *string_buf_ptr;
+
+int comment_counter = 0;
+int lineno = 0;
+
 %}
 
 
@@ -35,7 +42,9 @@ OP_MOD      "%"
 
 /* COMMENTS */
 
-COMMENT_SINGLE          #.*\n
+COMMENT_SINGLE_LINE     #.*\n
+COMMENT_OPEN            "/*"
+COMMENT_CLOSE           "*/"
 
 
 /* punctuactions */
@@ -64,6 +73,7 @@ FLOAT       {DIGIT}+{DOT}{DIGIT}+
 LETTER      [a-zA-Z]
 STRING      {LETTER}+
 BOOL        {TRUE}|{FALSE}
+CHAR        .
 
 ALL      .
 
@@ -96,8 +106,86 @@ NUL                 null
 OR                  or
 AND                 and
 
+%x COMMENT
+%x STRING_SIMPLE
+%x STRING_FORMAT
 
 %%
+
+ /* COMMENTS */
+<INITIAL,COMMENT>{NEWLINE} {
+    lineno++;
+}
+<INITIAL,COMMENT>{COMMENT_OPEN}	{
+    comment_counter++;
+    BEGIN(COMMENT);
+}
+<INITIAL>{COMMENT_CLOSE} {
+    return ERROR;
+}
+<COMMENT>{COMMENT_CLOSE} {
+    comment_counter--;
+    if (comment_counter <= 0) {
+        BEGIN(INITIAL);
+        comment_counter = 0;
+    }
+}
+<COMMENT>{CHAR} ;
+<COMMENT><<EOF>> {
+    BEGIN(INITIAL);
+    return ERROR;
+}
+
+{COMMENT_SINGLE_LINE} ;
+
+
+ /* DATATYPES */
+
+ /* FORMAT STRING */
+<INITIAL>{QUOTE_FORMAT} {
+    string_buf[0] = '\0';
+    string_buf_ptr = string_buf;
+    BEGIN(STRING_FORMAT);
+}
+<STRING_FORMAT>{QUOTE_FORMAT} {
+    yylval.string_ = string_buf;
+    printf("STRING_FORMAT: %s\n", yylval.string_);
+
+    BEGIN(INITIAL);
+    return LITERAL_STRING;
+}
+<STRING_FORMAT>{CHAR} {
+    printf("CHAR: %s\n", yytext);
+    *string_buf_ptr = yytext[0];
+    string_buf_ptr++;
+}
+<STRING_FORMAT><<EOF>> {
+    BEGIN(INITIAL);
+    return ERROR;
+}
+
+ /* SIMPLE STRING */
+<INITIAL>{QUOTE_SIMPLE} {
+    string_buf[0] = '\0';
+    string_buf_ptr = string_buf;
+    BEGIN(STRING_SIMPLE);
+}
+<STRING_SIMPLE>{QUOTE_SIMPLE} {
+    yylval.string_ = string_buf;
+    printf("STRING_SIMPLE: %s\n", yylval.string_);
+
+    BEGIN(INITIAL);
+    return LITERAL_STRING;
+}
+<STRING_SIMPLE>{CHAR} {
+    printf("CHAR: %s\n", yytext);
+    *string_buf_ptr = yytext[0];
+    string_buf_ptr++;
+}
+<STRING_SIMPLE><<EOF>> {
+    BEGIN(INITIAL);
+    return ERROR;
+}
 
  /* data type */
 
@@ -105,9 +193,6 @@ AND                 and
 {FLOAT}             { printf("FLOAT %s\n", yytext); yylval.float_ = atof(yytext); return LITERAL_FLOAT; }
 {BOOL}              { printf("BOOL %s\n", yytext); yylval.boolean_ = (yytext=="true"? 1 : 0); return LITERAL_BOOL; }
 
- /* comments */
-
-{COMMENT_SINGLE}    ;
 
  /* keywords */
 

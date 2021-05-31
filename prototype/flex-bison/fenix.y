@@ -16,6 +16,7 @@ void yyerror(const std::string s);
     int integer_;
     float float_;
     Boolean boolean_;
+    char* string_;
 }
 
 /* declare tokens */
@@ -25,6 +26,7 @@ void yyerror(const std::string s);
 %token LITERAL_INTEGER
 %token LITERAL_FLOAT
 %token LITERAL_BOOL
+%token LITERAL_STRING
 
 /* comments */
 
