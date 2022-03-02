@@ -4,6 +4,8 @@ name: docs
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
@@ -14,6 +16,9 @@ jobs:
     strategy:
       matrix:
         python-version: [3.9]
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
     defaults:
       run:
         shell: bash -l {0}
@@ -35,6 +40,7 @@ jobs:
       run: make docs
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
+      if: ${{ github.event_name == 'push' }}
       uses: peaceiris/actions-gh-pages@v3.5.9
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
