@@ -1,31 +1,11 @@
-- file: intro
-- file: references/intro
-  sections:
-  - file: references/classes-types-structs
-  - file: references/code-injection
-  - file: references/code-style-conventions
-  - file: references/compilation-modifier-attributes
-  - file: references/concurrency
-  - file: references/conditional-control
-  - file: references/context-manager
-  - file: references/docstrings
-  - file: references/enums
-  - file: references/error-handling
-  - file: references/functions
-  - file: references/import
-  - file: references/integration-with-other-languages
-  - file: references/lambda
-  - file: references/loop-control
-  - file: references/macros
-  - file: references/match-pattern
-  - file: references/namespaces
-  - file: references/operators
-  - file: references/package-management
-  - file: references/pointers-and-references
-  - file: references/primitive-types
-  - file: references/scalar-types
-  - file: references/scope
-  - file: references/templates
-  - file: references/tuples-lists-arrays-set-dictionaries
-  - file: references/type-annotation
-  - file: references/variables-and-constants
+format: jb-book
+root: README
+options:
+  numbered: true
+
+parts:
+
+  - caption: Arx Enhancement Proposal
+    chapters:
+      - file: aeps/aep-2021000-aep-template.md
+      - file: aeps/aep-2022001-docstrings-and-comments
