@@ -1,0 +1,10 @@
+name: arx-design
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - jupyter-book
+  - make
+  - pip
+  - python
+  - sphinx

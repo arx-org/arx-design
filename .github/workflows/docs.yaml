@@ -26,9 +26,9 @@ jobs:
       with:
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        activate-environment: fenix-design
-        channels: conda-forge
-        environment-file: environment.yaml
+        activate-environment: arx-design
+        channels: nodefaults,conda-forge
+        environment-file: conda/dev.yaml
 
     # Build the book
     - name: Build the book

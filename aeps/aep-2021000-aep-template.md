@@ -1,9 +1,12 @@
-# Arx Design
+# AEP 1 - Arx Implementation Proposal Template
 
-This repository aims to server as focal point to discuss and to store
-enhancement proposals.
+* **Author** ...
+* **Status**: Approved <!-- Approved, Draft, Active, Denied -->
+* **Type**: Informational <!-- Standards Track | Informational | Process -->
+* **Created**: 2021-01-27
+* **Resolution**: None
 
-## Arx Enhancement Proposal (AEP)
+## Abstract
 
 AEP are a formal process whereby important changes are proposed and
 discussed. Corresponding to each AEP is a document that outlines the
@@ -208,3 +211,17 @@ already, so that it is visible in the AEP repository proper.
 If there are substantive objections, then the AEP remains in Draft state,
 discussion continues as normal, and it can be proposed for acceptance again
 later once the objections are resolved.
+
+## Discussion
+
+- None
+
+## License
+
+BSD-3-Clause
+
+
+## Acknowledge
+
+This Implementation Proposal Template was based on
+[Arx Enhancement Proposal](https://github.com/arx-org/arx-design/blob/68f05463c1f71c06b3c210b4cab552ba4bcda836/AEP-0001.md)
