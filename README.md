@@ -135,11 +135,11 @@ Once an AEP has been **Accepted**, the reference implementation must be
 completed. When the reference implementation is complete and incorporated into
 the main source code repository, the status will be changed to **Final**.
 
-A AEP can also be assigned status **Deferred**. The AEP author or a core
+An AEP can also be assigned status **Deferred**. The AEP author or a core
 developer can assign the AEP this status when no progress is being made on
 the AEP.
 
-A AEP can also be **Rejected**. Perhaps after all is said and done it was
+An AEP can also be **Rejected**. Perhaps after all is said and done it was
 not a good idea. It is still important to have a record of this fact. The
 **Withdrawn** status is similar—it means that the AEP author themselves has
 decided that the AEP is actually a bad idea, or has accepted that a
