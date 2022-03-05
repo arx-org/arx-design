@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AEP 1 - Arx Implementation Proposal Template &#8212; Arx Language</title>
+    <title>ArxEP 1 - Arx Implementation Proposal Template &#8212; Arx Language</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AEP 2022001: Docstring and comments" href="aep-2022001-docstrings-and-comments.html" />
-    <link rel="prev" title="Arx Design" href="../README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,24 +87,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Arx Enhancement Proposal
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   AEP 1 - Arx Implementation Proposal Template
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="aep-2022001-docstrings-and-comments.html">
-   AEP 2022001: Docstring and comments
-  </a>
- </li>
-</ul>
-
+        
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -146,7 +127,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/aeps/aep-2021000-aep-template.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/arxeps/arxep-2021000-aep-template.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -166,10 +147,10 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/arx-org/arx-design/issues/new?title=Issue%20on%20page%20%2Faeps/aep-2021000-aep-template.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/arx-org/arx-design/issues/new?title=Issue%20on%20page%20%2Farxeps/arxep-2021000-aep-template.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/arx-org/arx-design/edit/main/aeps/aep-2021000-aep-template.md"><button
+        <a class="edit-button" href="https://github.com/arx-org/arx-design/edit/main/arxeps/arxep-2021000-aep-template.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -200,8 +181,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-an-aep">
-   What is an AEP?
+  <a class="reference internal nav-link" href="#what-is-an-arxep">
+   What is an ArxEP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -215,8 +196,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aep-workflow">
-   AEP Workflow
+  <a class="reference internal nav-link" href="#arxep-workflow">
+   <strong>
+    ArxEP
+   </strong>
+   Workflow
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -225,15 +209,19 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#merging-the-aep-document-pull-request">
-     Merging the AEP Document Pull Request
+    <a class="reference internal nav-link" href="#merging-the-arxep-document-pull-request">
+     Merging the
+     <strong>
+      ArxEP
+     </strong>
+     Document Pull Request
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accepting-an-aep">
-   Accepting an AEP
+  <a class="reference internal nav-link" href="#accepting-an-arxep">
+   Accepting an ArxEP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -261,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>AEP 1 - Arx Implementation Proposal Template</h1>
+                <h1>ArxEP 1 - Arx Implementation Proposal Template</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -277,8 +265,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-an-aep">
-   What is an AEP?
+  <a class="reference internal nav-link" href="#what-is-an-arxep">
+   What is an ArxEP?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -292,8 +280,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aep-workflow">
-   AEP Workflow
+  <a class="reference internal nav-link" href="#arxep-workflow">
+   <strong>
+    ArxEP
+   </strong>
+   Workflow
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -302,15 +293,19 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#merging-the-aep-document-pull-request">
-     Merging the AEP Document Pull Request
+    <a class="reference internal nav-link" href="#merging-the-arxep-document-pull-request">
+     Merging the
+     <strong>
+      ArxEP
+     </strong>
+     Document Pull Request
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#accepting-an-aep">
-   Accepting an AEP
+  <a class="reference internal nav-link" href="#accepting-an-arxep">
+   Accepting an ArxEP
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -337,8 +332,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="aep-1-arx-implementation-proposal-template">
-<h1>AEP 1 - Arx Implementation Proposal Template<a class="headerlink" href="#aep-1-arx-implementation-proposal-template" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="arxep-1-arx-implementation-proposal-template">
+<h1><strong>ArxEP</strong> 1 - <strong>Arx</strong> Implementation Proposal Template<a class="headerlink" href="#arxep-1-arx-implementation-proposal-template" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Author</strong> …</p></li>
 <li><p><strong>Status</strong>: Approved <!-- Approved, Draft, Active, Denied --></p></li>
@@ -348,49 +343,49 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="section" id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
-<p>AEP are a formal process whereby important changes are proposed and
-discussed. Corresponding to each AEP is a document that outlines the
-proposed change(s), the discussion around those changes, and motivation for
-that change. This document outlines the details of the AEP process and
-corresponding documents.</p>
+<p><strong>ArxEP</strong> stands for “<strong>Arx</strong> Enhancement Proposal”. <strong>ArxEPs</strong> represent a formal
+process whereby important changes are proposed and discussed in the <strong>Arx</strong>
+community.</p>
 </div>
-<div class="section" id="what-is-an-aep">
-<h2>What is an AEP?<a class="headerlink" href="#what-is-an-aep" title="Permalink to this headline">¶</a></h2>
-<p>AEP stands for “Arx Enhancement Proposal”. AEPs represent a formal
-process whereby important changes are proposed and discussed in the Arx
-community. Corresponding to each AEP is an AEP document which outlines
-the proposal and corresponding discussion. AEPs are based on
-<a class="reference external" href="https://www.python.org/dev/peps/">PEP</a> process used by the Python language
-community to propose changes to the Python language. It also takes motivations
-from other similar processes in communities adjacent to Arx, such as the
+<div class="section" id="what-is-an-arxep">
+<h2>What is an ArxEP?<a class="headerlink" href="#what-is-an-arxep" title="Permalink to this headline">¶</a></h2>
+<p><strong>ArxEP</strong> are a formal process whereby important changes are proposed and
+discussed. Corresponding to each <strong>ArxEP</strong> there is a document that outlines the
+proposed change(s), the discussion around those changes, and motivation for
+that change. This document outlines the details of the <strong>ArxEP</strong> process and
+corresponding documents.</p>
+<p><strong>ArxEP</strong> are heavely based on <a class="reference external" href="https://github.com/sympy/SymPEPs">SymPEPs</a>, the SymPy Enhancement Proposal process. Also, it is inspired by
+<a class="reference external" href="https://www.python.org/dev/peps/">PEP</a> process, used by the Python language
+community, and it takes motivations
+from other similar processes in communities adjacent to <strong>Arx</strong>, such as the
 <a class="reference external" href="https://numpy.org/neps/nep-0000.html">NEP</a> process for NumPy and the
-<a class="reference external" href="https://matplotlib.org/devel/MEP/index.html">MEP</a> process for Matplotlib.
-However, the AEP process differs from these processes in many ways, so
+<a class="reference external" href="https://matplotlib.org/devel/MEP/index.html">MEP</a> process for Matplotlib.</p>
+<p>However, the <strong>ArxEP</strong> process differs from these processes in many ways, so
 those who may already be familiar with similar processes from other
-communities should read this document to understand how it works for AEPs.</p>
-<p>In particular, AEPs are significantly less formal than Python PEPs.</p>
+communities should read this document to understand how it works for <strong>ArxEPs</strong>.</p>
+<p>In particular, <strong>ArxEPs</strong> are significantly less formal than Python PEPs.</p>
 </div>
 <div class="section" id="types">
 <h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
-<p>There are three kinds of AEPs:</p>
-<p>A <strong>Standards Track</strong> AEP describes a new feature or important change for
-Arx.</p>
-<p>An <strong>Informational</strong> AEP describes a Arx design issue, or provides general
+<p>There are three kinds of <strong>ArxEPs</strong>:</p>
+<p>A <strong>Standards Track</strong> <strong>ArxEP</strong> describes a new feature or important change for
+<strong>Arx</strong>.</p>
+<p>An <strong>Informational</strong> <strong>ArxEP</strong> describes a <strong>Arx</strong> design issue, or provides general
 guidelines or information to the Python community, but does not propose a new
-feature. Informational AEPs do not necessarily represent a Arx community
+feature. Informational <strong>ArxEPs</strong> do not necessarily represent a <strong>Arx</strong> community
 consensus or recommendation, so users and implementers are free to ignore
-Informational AEPs or follow their advice.</p>
-<p>A <strong>Process</strong> AEP describes a process surrounding Arx, or proposes a
-change to (or an event in) a process. Process AEPs are like Standards Track
-AEPs but apply to areas other than the Arx library itself. They may
+Informational <strong>ArxEPs</strong> or follow their advice.</p>
+<p>A <strong>Process</strong> <strong>ArxEP</strong> describes a process surrounding <strong>Arx</strong>, or proposes a
+change to (or an event in) a process. Process <strong>ArxEPs</strong> are like Standards Track
+<strong>ArxEPs</strong> but apply to areas other than the <strong>Arx</strong> library itself. They may
 propose an implementation, but not to Arx’s codebase; they require community
 consensus. Examples include procedures, guidelines, changes to the
-decision-making process, and changes to the tools or environment used in Arx
-development. Any meta-AEP is also considered a Process AEP.</p>
+decision-making process, and changes to the tools or environment used in <strong>Arx</strong>
+development. Any meta-ArxEP is also considered a Process ArxEP.</p>
 </div>
 <div class="section" id="purpose">
 <h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
-<p>The AEP process and corresponding documents serve several purposes:</p>
+<p>The <strong>ArxEP</strong> process and corresponding documents serve several purposes:</p>
 <ul class="simple">
 <li><p>To decide, as a community, whether a proposed change should be made.</p></li>
 <li><p>To decide on the process by which a change will be implemented, for example,
@@ -398,121 +393,121 @@ whether the change should be implemented in several stages, whether
 intermediate releases are required for things like deprecations, and so on.</p></li>
 <li><p>To document the above discussions and decisions for future reference.</p></li>
 <li><p>To document the motivations for a change from the perspective of end users
-who may be affected by it. Here “end users” means both users of the Arx
-library, as well as developers working on parts of Arx itself which may be
+who may be affected by it. Here “end users” means both users of the <strong>Arx</strong>
+library, as well as developers working on parts of <strong>Arx</strong> itself which may be
 affected by the change.</p></li>
 </ul>
-<p>Importantly, <strong>an AEP is not documentation</strong> for the proposed change. End
+<p>Importantly, an <strong>ArxEP</strong> is not documentation for the proposed change. End
 user documentation should be included with the implementation of the feature
-in the corresponding Arx documentation. This also means that other
-documentation should not cross-reference an AEP as if it were documentation
+in the corresponding <strong>Arx</strong> documentation. This also means that other
+documentation should not cross-reference an <strong>ArxEP</strong> as if it were documentation
 for a feature. Even technical discussion of a feature should be documented
-separately from an AEP. The reason is that AEPs will necessarily include
+separately from an ArxEP. The reason is that <strong>ArxEPs</strong> will necessarily include
 details that are irrelevant to the final implementation, such as discussions
 of alternate implementations which were rejected and discussions of
 implementation of the change.</p>
 </div>
-<div class="section" id="aep-workflow">
-<h2>AEP Workflow<a class="headerlink" href="#aep-workflow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arxep-workflow">
+<h2><strong>ArxEP</strong> Workflow<a class="headerlink" href="#arxep-workflow" title="Permalink to this headline">¶</a></h2>
 <p>Discussions around a proposed change may begin informally on the mailing list
-or Arx issue tracker. However, once it is decided that the formal AEP
+or <strong>Arx</strong> issue tracker. However, once it is decided that the formal ArxEP
 process is desired for a change, the discussion should move to the
-<a class="reference external" href="https://github.com/arx-org/arx-design">AEP repository</a> on GitHub.</p>
-<p>Every AEP must have a champion. This is a person who is responsible for
-writing the AEP, leads the discussion around it, and tries to create
+<a class="reference external" href="https://github.com/arx-org/arx-design">ArxEP repository</a> on GitHub.</p>
+<p>Every <strong>ArxEP</strong> must have a champion. This is a person who is responsible for
+writing the ArxEP, leads the discussion around it, and tries to create
 consensus around it.</p>
-<p>The author of an AEP should fork the repository and create a pull request
-with a new AEP document based on the <span class="xref myst">AEP template</span>.
-The AEP document may be named <code class="docutils literal notranslate"><span class="pre">AEP-YYYY-XX.md</span></code> until a number is assigned.
-One of the core Arx developers will then assign a number to the AEP, in
-which case <code class="docutils literal notranslate"><span class="pre">XXXX</span></code> should be replaced with the number with leading 0s. The
+<p>The author of an <strong>ArxEP</strong> should fork the repository and create a pull request
+with a new <strong>ArxEP</strong> document based on the <span class="xref myst">ArxEP template</span>.
+The <strong>ArxEP</strong> document may be named <code class="docutils literal notranslate"><span class="pre">arxep-YYYYXXX.md</span></code> until a number is assigned.</p>
+<p>One of the core <strong>Arx</strong> developers will then assign a number to the ArxEP, in
+which case <code class="docutils literal notranslate"><span class="pre">XXX</span></code> should be replaced with the number with leading 0s. The
 person who assigns the number should also update the
 <a class="reference external" href="https://github.com/arx-org/arx-design/blob/main/README.md">README</a> of the main
-<a class="reference external" href="https://github.com/arx-org/arx-design">AEP repository</a> to list that number.
-Numbers should be assigned to AEPs as soon as it is determined that they
-are a legitimate proposal. If an AEP ends up being rejected or postponed, it
+<a class="reference external" href="https://github.com/arx-org/arx-design">ArxEP repository</a> to list that number.
+Numbers should be assigned to <strong>ArxEPs</strong> as soon as it is determined that they
+are a legitimate proposal. If an <strong>ArxEP</strong> ends up being rejected or postponed, it
 keeps its number, as rejection or postponement status is still a discussion
-that should be documented in the AEP. AEP numbers should generally be
+that should be documented in the ArxEP. <strong>ArxEP</strong> numbers should generally be
 assigned in increasing numeric order.</p>
-<p>Discussion on the AEP should then continue on the AEP pull request.
+<p>Discussion on the <strong>ArxEP</strong> should then continue on the <strong>ArxEP</strong> pull request.
 Discussions may also take place in other places, such as <a class="reference external" href="https://github.com/arx-org/arx-design/discussions">GitHub
-discussions</a> or the <a class="reference external" href="http://groups.google.com/group/Arx">mailing
+discussions</a> or the <a class="reference external" href="http://groups.google.com/group/**Arx**">mailing
 list</a>. All discussions should be
-cross-referenced in the “Discussions” section of the AEP document.</p>
-<p>For each AEP, the community should decide whether a draft implementation is
-needed before acceptance or not. For instance, if an AEP concerns the
+cross-referenced in the “Discussions” section of the <strong>ArxEP</strong> document.</p>
+<p>For each ArxEP, the community should decide whether a draft implementation is
+needed before acceptance or not. For instance, if an <strong>ArxEP</strong> concerns the
 details of how a feature is implemented, it should be accepted before that
 happens. On the other hand, the community may decide that it cannot come to a
-consensus about an AEP until a draft implementation is proposed.</p>
-<p>Once the community reaches a consensus about an AEP, the status of an AEP
+consensus about an <strong>ArxEP</strong> until a draft implementation is proposed.</p>
+<p>Once the community reaches a consensus about an ArxEP, the status of an ArxEP
 should be updated (see below). This consensus may be to accept or to reject
-the AEP, or to defer it. Here the “community” refers to the broader
-community that has a stake in the AEP, not just the core Arx developers.
-The purpose of the AEP process is not to create a cabal of decision makers,
-but rather to enhance the involvement of the broader Arx community in the
+the ArxEP, or to defer it. Here the “community” refers to the broader
+community that has a stake in the ArxEP, not just the core <strong>Arx</strong> developers.
+The purpose of the <strong>ArxEP</strong> process is not to create a cabal of decision makers,
+but rather to enhance the involvement of the broader <strong>Arx</strong> community in the
 decision making process.</p>
 <div class="section" id="status">
 <h3>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>status</strong> section at the top of the AEP document (see the
-<span class="xref myst">template</span>) should be updated according to the current status
-of the AEP.</p>
-<p>All AEPs should be created with the <strong>Draft</strong> status. <strong>Draft</strong> status
-AEPs generally live in a pull request.</p>
-<p>Eventually, after discussion, there may be a consensus that the AEP should
+<p>The <strong>status</strong> section at the top of the <strong>ArxEP</strong> document (see the
+<span class="xref myst">template</span>) should be updated according to the
+current status of the ArxEP.</p>
+<p>All <strong>ArxEPs</strong> should be created with the <strong>Draft</strong> status. <strong>Draft</strong> status
+<strong>ArxEPs</strong> generally live in a pull request.</p>
+<p>Eventually, after discussion, there may be a consensus that the <strong>ArxEP</strong> should
 be accepted–see the next section for details. At this point the status
 becomes <strong>Accepted</strong>.</p>
-<p>Once an AEP has been <strong>Accepted</strong>, the reference implementation must be
+<p>Once an <strong>ArxEP</strong> has been <strong>Accepted</strong>, the reference implementation must be
 completed. When the reference implementation is complete and incorporated into
 the main source code repository, the status will be changed to <strong>Final</strong>.</p>
-<p>A AEP can also be assigned status <strong>Deferred</strong>. The AEP author or a core
-developer can assign the AEP this status when no progress is being made on
-the AEP.</p>
-<p>A AEP can also be <strong>Rejected</strong>. Perhaps after all is said and done it was
+<p>An <strong>ArxEP</strong> can also be assigned status <strong>Deferred</strong>. The <strong>ArxEP</strong> author or a core
+developer can assign the <strong>ArxEP</strong> this status when no progress is being made on
+the ArxEP.</p>
+<p>An <strong>ArxEP</strong> can also be <strong>Rejected</strong>. Perhaps after all is said and done it was
 not a good idea. It is still important to have a record of this fact. The
-<strong>Withdrawn</strong> status is similar—it means that the AEP author themselves has
-decided that the AEP is actually a bad idea, or has accepted that a
+<strong>Withdrawn</strong> status is similar—it means that the <strong>ArxEP</strong> author themselves has
+decided that the <strong>ArxEP</strong> is actually a bad idea, or has accepted that a
 competing proposal is a better alternative.</p>
-<p>AEPs can also be <strong>Superseded</strong> by a different AEP, rendering the
+<p><strong>ArxEPs</strong> can also be <strong>Superseded</strong> by a different ArxEP, rendering the
 original obsolete.</p>
-<p>Process AEPs may also have a status of <strong>Active</strong> if they are never meant
-to be completed, e.g. AEP 1 (this AEP).</p>
+<p>Process <strong>ArxEPs</strong> may also have a status of <strong>Active</strong> if they are never meant
+to be completed, e.g. <strong>ArxEP</strong> 1 (this ArxEP).</p>
 </div>
-<div class="section" id="merging-the-aep-document-pull-request">
-<h3>Merging the AEP Document Pull Request<a class="headerlink" href="#merging-the-aep-document-pull-request" title="Permalink to this headline">¶</a></h3>
-<p>Whenever an AEP moves from the <strong>Draft</strong> status to one of the other above
+<div class="section" id="merging-the-arxep-document-pull-request">
+<h3>Merging the <strong>ArxEP</strong> Document Pull Request<a class="headerlink" href="#merging-the-arxep-document-pull-request" title="Permalink to this headline">¶</a></h3>
+<p>Whenever an <strong>ArxEP</strong> moves from the <strong>Draft</strong> status to one of the other above
 statuses, the header should be updated, and the corresponding pull request
-should be merged. This way the document lives inside of the AEP repository
-proper. AEPs that are merged are not set in stone, and may be updated by
-future pull requests (although AEPs that are <strong>Accepted</strong> should generally
+should be merged. This way the document lives inside of the <strong>ArxEP</strong> repository
+proper. <strong>ArxEPs</strong> that are merged are not set in stone, and may be updated by
+future pull requests (although <strong>ArxEPs</strong> that are <strong>Accepted</strong> should generally
 not be significantly modified once they have reached that status). The purpose
-of merging is simply to make the AEP visible in the repository, even if it
-isn’t yet accepted or rejected. AEP discussions that have stalled should
-also be merged, so that the AEP becomes visible in the AEP repository
+of merging is simply to make the <strong>ArxEP</strong> visible in the repository, even if it
+isn’t yet accepted or rejected. <strong>ArxEP</strong> discussions that have stalled should
+also be merged, so that the <strong>ArxEP</strong> becomes visible in the <strong>ArxEP</strong> repository
 proper—again, discussion may be picked up again with a new pull request.</p>
 </div>
 </div>
-<div class="section" id="accepting-an-aep">
-<h2>Accepting an AEP<a class="headerlink" href="#accepting-an-aep" title="Permalink to this headline">¶</a></h2>
-<p>Once an AEP is Accepted by consensus of all interested contributors, an
+<div class="section" id="accepting-an-arxep">
+<h2>Accepting an ArxEP<a class="headerlink" href="#accepting-an-arxep" title="Permalink to this headline">¶</a></h2>
+<p>Once an <strong>ArxEP</strong> is Accepted by consensus of all interested contributors, an
 topic should be created to the
-<a class="reference external" href="https://github.com/arx-org/arx/discussions">Arx GitHub Discussions</a>
+<a class="reference external" href="https://github.com/arx-org/arx/discussions"><strong>Arx</strong> GitHub Discussions</a>
 with a subject like:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Proposal to accept AEP #&lt;number&gt;: &lt;title&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Proposal to accept **ArxEP** #&lt;number&gt;: &lt;title&gt;
 </pre></div>
 </div>
 <p>In the body of your message, you should:</p>
 <ul class="simple">
-<li><p>link to the latest version of the AEP,</p></li>
+<li><p>link to the latest version of the ArxEP,</p></li>
 <li><p>briefly describe any major points of contention and how they were resolved,</p></li>
 <li><p>include a sentence like: “If there are no substantive objections within 7
-days from this message, then the AEP will be accepted; see AEP 1 for
+days from this message, then the <strong>ArxEP</strong> will be accepted; see <strong>ArxEP</strong> 1 for
 more details.”</p></li>
 </ul>
 <p>After you start this discussion, add the GitHub discussion link
-to the Discussion section of the AEP, so that people can find it later.</p>
-<p>Generally, the AEP author will be the one to start this GH Discussion,
+to the Discussion section of the ArxEP, so that people can find it later.</p>
+<p>Generally, the <strong>ArxEP</strong> author will be the one to start this GH Discussion,
 but anyone can do it – the important thing is to make sure that everyone
-knows when an AEP is on the verge of acceptance, and give them a final
+knows when an <strong>ArxEP</strong> is on the verge of acceptance, and give them a final
 chance to respond. If there’s some special reason to extend this final
 comment period beyond 7 days, then that’s fine, just say so in the GH Discussion.
 It shouldn’t be less than 7 days, because sometimes people are traveling
@@ -521,12 +516,12 @@ or similar and need some time to respond.</p>
 provide a rigid policy for people to try to game. When in doubt, err on the
 side of asking for more feedback and looking for opportunities to compromise.</p>
 <p>If the final comment period passes without any substantive objections, then
-the AEP can officially be marked <strong>Accepted</strong>. A followup message should then
-be sent to its GH Discussion thread. Update the AEP by setting its <strong>Status</strong> to
+the <strong>ArxEP</strong> can officially be marked <strong>Accepted</strong>. A followup message should then
+be sent to its GH Discussion thread. Update the <strong>ArxEP</strong> by setting its <strong>Status</strong> to
 <strong>Accepted</strong>, and its <strong>Resolution</strong> header to a link to your GH Discussion thread.
-The AEP pull request should be merged at this time, if it hasn’t been
-already, so that it is visible in the AEP repository proper.</p>
-<p>If there are substantive objections, then the AEP remains in Draft state,
+The <strong>ArxEP</strong> pull request should be merged at this time, if it hasn’t been
+already, so that it is visible in the <strong>ArxEP</strong> repository proper.</p>
+<p>If there are substantive objections, then the <strong>ArxEP</strong> remains in Draft state,
 discussion continues as normal, and it can be proposed for acceptance again
 later once the objections are resolved.</p>
 </div>
@@ -542,8 +537,9 @@ later once the objections are resolved.</p>
 </div>
 <div class="section" id="acknowledge">
 <h2>Acknowledge<a class="headerlink" href="#acknowledge" title="Permalink to this headline">¶</a></h2>
-<p>This Implementation Proposal Template was based on
-<a class="reference external" href="https://github.com/arx-org/arx-design/blob/68f05463c1f71c06b3c210b4cab552ba4bcda836/AEP-0001.md">Arx Enhancement Proposal</a></p>
+<p>This Enhancement Proposal Template was based other templates, such as:
+Sympy Enhancement Proposal (SymEP),
+Numpy Enhancement Proposal (NEP), Python Enhancement Proposal (PEP).</p>
 </div>
 </div>
 
@@ -560,7 +556,7 @@ later once the objections are resolved.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./aeps"
+            path: "./arxeps"
         },
         predefinedOutput: true
     }
@@ -571,21 +567,7 @@ later once the objections are resolved.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Arx Design</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="aep-2022001-docstrings-and-comments.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AEP 2022001: Docstring and comments</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>

@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArxEP 2022001: Docstring and comments &#8212; Arx Language</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/arx.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Arx Language</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/arxeps/arxep-2022001-docstrings-and-comments.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/arx-org/arx-design"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/arx-org/arx-design/issues/new?title=Issue%20on%20page%20%2Farxeps/arxep-2022001-docstrings-and-comments.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/arx-org/arx-design/edit/main/arxeps/arxep-2022001-docstrings-and-comments.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments">
+     Comments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docstrings">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposal">
+   Proposal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Comments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inline-comments">
+       Inline comments
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiline-comments">
+       Multiline comments
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-works">
+   Future works
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright">
+   Copyright
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changelog">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>ArxEP 2022001: Docstring and comments</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments">
+     Comments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docstrings">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposal">
+   Proposal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Comments
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inline-comments">
+       Inline comments
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiline-comments">
+       Multiline comments
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Docstrings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-works">
+   Future works
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright">
+   Copyright
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changelog">
+   Changelog
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="arxep-2022001-docstring-and-comments">
+<h1>ArxEP 2022001: Docstring and comments<a class="headerlink" href="#arxep-2022001-docstring-and-comments" title="Permalink to this headline">¶</a></h1>
+<!--
+Authors: Full Name 1 <full.name1 at organization.com>, Full Name2 <full.name2 at organization.com>
+-->
+<p><strong>Authors</strong> : Ivan Ogasawara &lt;ivan.ogasawara at <a class="reference external" href="http://gmail.com">gmail.com</a>&gt;</p>
+<!--
+Status [Draft | Accepted | Final | Deferred | Rejected | Withdrawn | Superseded | Active]
+-->
+<p><strong>Status</strong> Draft</p>
+<!--
+Type: [Standards Track | Informational | Process]
+-->
+<p><strong>Type</strong> Standards Track</p>
+<p><strong>Created</strong> 2022-03-01</p>
+<!--
+resolution: url to discussion (required for Accepted | Rejected | Withdrawn)
+-->
+<p><strong>Resolution</strong></p>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<!--
+The Abstraction section ...
+-->
+<p>Currently, the comments used by <strong>Arx</strong> was inherited from <strong>Kaleidoscope</strong> language.
+Now, it needs to be udpated according to the needs of Arx.</p>
+<p>Other programming languages have adopted differents approaches for comments
+and docstrings (comments used for documentation).</p>
+<p>The current proposal presents some approaches used by other languages, and it
+ends with a proposal for <strong>Arx</strong>.</p>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Every programming language has its own approach for
+<a class="reference external" href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comments</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Docstring">docstrings</a>.
+Commonly, comments could be <strong>Inline</strong> or <strong>Multiline</strong>.</p>
+<p><strong>docstrings</strong> is similar to comments, but they used for documentation.</p>
+<p>In this section, it is presented some approaches used for comments and
+docstrings.</p>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned before, commonly, comments could be <strong>inline</strong> or <strong>multiline</strong>.</p>
+<p>Inline comments, usually can be used in the beginning of a line
+(all the line would be considered as a comment) or it can be used at the end
+of a line.</p>
+<p>Some examples of <strong>inline</strong> comments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a comment in the beginning of a line</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># a comment at the end of a line</span>
+
+</pre></div>
+</div>
+<p>Multiline comments, also known as <strong>comment block</strong>, can be used to create a
+block of comments. It is very useful when creating a comment with a long text.</p>
+<p>Some examples of <strong>multiline</strong> comment:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* comment block in one line */</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Multiline comment</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>Before defining the <strong>comments</strong> for <strong>Arx</strong>, it is helpful to check first
+how some other languages have implemented that.</p>
+<p>Inline comments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--</span></code>: used by Ada, AppleScript, Haskel, SQL, Eiffel, VHDL, Lua</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⍝</span></code>: Used by APL</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REM</span></code>: BASIC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'</span></code>: Quick Basic, Q Basic, Visual Basic, Visual Basic .NET, VB Script,
+FreeBASIC and Gambas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!</span> </code>: Cisco IOS and IOS-XE configuration, Fortran 90</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: Foltran IV (used in the column 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code>: LaTex, MATLAB</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">//</span></code>: C, Java, JavaScript, PHP, Swift, C++, Go, Rust</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code>: Nim, Perl, R, PHP, Python, Ruby, YAML</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`</span></code> and <code class="docutils literal notranslate"><span class="pre">`</span></code>: Markdown</p></li>
+</ul>
+<p>Multine comments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(*</span></code> and <code class="docutils literal notranslate"><span class="pre">*)</span></code>: AppleScript, OCaml, Pascal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>: C, Java, JavaScript, PHP, Swift, C++, Go</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;!---</span></code> and <code class="docutils literal notranslate"><span class="pre">---&gt;</span></code>: ColdFusion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;!--</span></code> and <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code>: XML; HTML</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{-</span></code> and <code class="docutils literal notranslate"><span class="pre">-}</span></code>: Haskel</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--[[</span></code> and <code class="docutils literal notranslate"><span class="pre">]]</span></code>: Lua</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%{</span></code> and <code class="docutils literal notranslate"><span class="pre">}%</span></code>: MATLAB</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#[</span></code> and <code class="docutils literal notranslate"><span class="pre">]#</span></code>: Nim</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=begin</span> <span class="pre">&lt;anyname&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">=end</span> <span class="pre">&lt;anyname&gt;</span></code>: Perl</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=begin</span></code> and <code class="docutils literal notranslate"><span class="pre">=end</span></code>: Ruby</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=&lt;anyname&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">=cut</span></code>: Perl</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#`{{</span></code> and <code class="docutils literal notranslate"><span class="pre">}}</span></code>: Raku</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;#</span></code> and <code class="docutils literal notranslate"><span class="pre">#&gt;</span></code>: PowerShell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>: Python</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'''</span></code> and <code class="docutils literal notranslate"><span class="pre">'''</span></code>: Python</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">```</span></code> and <code class="docutils literal notranslate"><span class="pre">```</span></code>: Markdown</p></li>
+</ul>
+</div>
+<div class="section" id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+<p><strong>Docstrings</strong> are very similar to <strong>comments</strong>, but it is used for
+generating documentation. Besides the characters used to start a docstring,
+every language also has standards to define the information for the
+documentation.</p>
+<p><strong>Note:</strong> It isn’t the intention for this document to review the
+standards to write the docstrings.</p>
+<p>Some examples for <strong>Inline docstrings</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">///</span></code>: Rust</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;doc</span> <span class="pre">&quot;&lt;some</span> <span class="pre">text&gt;&quot;</span></code>: Elixir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">##</span></code>: Nim (for documentation)</p></li>
+</ul>
+<p>Some examples for <strong>Multiline docstrings</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/**</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>: C, Java, JavaScript, PHP, C++</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>: Python</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'''</span></code> and <code class="docutils literal notranslate"><span class="pre">'''</span></code>: Python</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;moduledoc</span> <span class="pre">&quot;&quot;&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>: Elixir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">##[</span></code> and <code class="docutils literal notranslate"><span class="pre">]##</span></code>: Nim</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(documentation</span> <span class="pre">#</span></code> and <code class="docutils literal notranslate"><span class="pre">'&lt;some</span> <span class="pre">name&gt;</span> <span class="pre">'function)</span> <span class="pre">=&gt;</span> <span class="pre">&quot;&lt;some</span> <span class="pre">output&gt;&quot;</span></code>: LISP</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="proposal">
+<h2>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h2>
+<p><strong>Arx</strong> aims to keep the syntaxes as similar as possible to the languages
+more used nowadays, such as <strong>Python</strong> and <strong>C++</strong>. Additionally, it considers
+<strong>Yaml</strong> format as a very useful way to write configuration and define a
+data structure.</p>
+<p><strong>Key points:</strong></p>
+<ul class="simple">
+<li><p>Comments</p>
+<ul>
+<li><p>Inline comments</p></li>
+<li><p>Multiline comments</p></li>
+</ul>
+</li>
+<li><p>Docstrings</p></li>
+</ul>
+<p><strong>Conventions</strong></p>
+<div class="section" id="id1">
+<h3>Comments<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>This section proposes the inline and multiline comment for <strong>Arx</strong>.</p>
+<div class="section" id="inline-comments">
+<h4>Inline comments<a class="headerlink" href="#inline-comments" title="Permalink to this headline">¶</a></h4>
+<p>Inline comments should use <code class="docutils literal notranslate"><span class="pre">#</span></code>, and it should work in the same way that was
+implement for <code class="docutils literal notranslate"><span class="pre">Python</span></code> (and other languages as well).</p>
+<p>It can be added in the beginning of a line, or it can be used at the end of a
+line. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a comment in the beginning of a line</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># a comment at the end of a line</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiline-comments">
+<h4>Multiline comments<a class="headerlink" href="#multiline-comments" title="Permalink to this headline">¶</a></h4>
+<p>Multiline comments should use triple backsticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) at the beginning of the comment block
+and triple backsticks at the end.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>```
+This multiline comment shows an example of how to use it inside the code.
+
+You can add any comment inside this block.
+```
+x = 1
+
+</pre></div>
+</div>
+<p>It be used in the middle of a line of code, For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function sum(a: int ```the 1st arg``` b: int ```2nd arg```) -&gt; int:
+  return a + b
+</pre></div>
+</div>
+<p><strong>Alternative:</strong></p>
+<p>Alternatively, the user can add the <code class="docutils literal notranslate"><span class="pre">comment</span></code> modifier. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```comment
+This is a multi line comment using triple backsticks
+This doesn&#39;t look bad, but it is more verbose.
+```
+</pre></div>
+</div>
+<p>So, the triple backsticks would work as a sugar syntax to
+triple backsticks with <code class="docutils literal notranslate"><span class="pre">comment</span></code> modifier.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Docstrings<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Similar to the <strong>multiline comments</strong>, <strong>docstring</strong> should use triple backsticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) at the beginning of the comment block
+and triple backsticks at the end.</p>
+<p>The docstrings will be used (and required) for <strong>functions</strong> (in the future, also for
+<strong>classes</strong> and <strong>methods</strong>). The content should use <strong>Yaml</strong> format
+and its structure should follow the
+[<strong>numpy docstring standards</strong>][numpy-dcostring].</p>
+<p>For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>function sum(a: int, b: int) -&gt; int:
+  ```
+  title: Sum two integer numbers `a` and `b`
+
+  parameters:
+    a: The first parameter
+    b: The second parameter
+
+  returns: The sum of two integer numbers
+  ```
+  return a + b
+
+</pre></div>
+</div>
+<p>The attributes/keys supported are:</p>
+<ol class="simple">
+<li><p>title (required)</p></li>
+<li><p>summary</p></li>
+<li><p>deprecated</p></li>
+<li><p>parameters</p></li>
+<li><p>returns</p></li>
+<li><p>raises</p></li>
+<li><p>see Also</p></li>
+<li><p>notes</p></li>
+<li><p>references</p></li>
+<li><p>examples</p></li>
+</ol>
+<p>In the following example, it is presented a full example of docstrings for a function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+function sum(a: int, b: int) -&gt; int:
+  ```
+  title: Sum `a` and `b`
+
+  summary: |
+    `sum` function aims to sum the arguments `a` and `b`.
+    It is the same as `a` + `b`.
+
+  parameters:
+    a: The first number.
+    b: The second number.
+
+  returns: Return the sum of the numbers.
+
+  deprecated:
+    1.8.0:
+      - this function would be replaced by the binary operator `+`.
+
+  raises:
+    ValueError: If `a` is less than 0.
+
+  notes:
+    - this is a very simple function
+    - don&#39;t use it for production
+
+  see-also:
+    sum_list: sum a list of integers.
+
+  references:
+    - https://en.wiktionary.org/wiki/sum
+
+  examples: |
+    &gt;&gt;&gt; sum(1, 2) == 3
+    true
+
+  ```
+  # raise an error when a is less than 0
+  if a &lt; 0:
+    raise ValueError(&quot;`a` is less than 0.&quot;)
+
+  ```
+  The sum function is useful when another function expect a function as
+  parameter and you need to add two integers.
+  ```
+  return a + b
+
+</pre></div>
+</div>
+<p>The docstrings should be required at compile-time, and the attribute <code class="docutils literal notranslate"><span class="pre">title</span></code> is required. The other attributes are optional.</p>
+</div>
+</div>
+<div class="section" id="future-works">
+<h2>Future works<a class="headerlink" href="#future-works" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Additionally, the docstring for parameters description could be
+defined inline inside the function signature.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function sum(a: int ```the 1st arg``` b: int ```2nd arg``` -&gt; int:
+  ```
+  title: Sum two integer numbers.
+  ```
+  return a + b
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>The docstrings should be converted into a dictionary, and it should
+be available inside the code. For example:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These topics should be discussed for future implementation.</p>
+</div>
+<div class="section" id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
+<p>This document has been placed in the public domain.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">Comments</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Docstring">Docstrings</a></p></li>
+<li><p><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpy Docstrings Format</a></p></li>
+</ul>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>2021-03-24: Creation of the document</p></li>
+</ul>
+<!-- markdown references -->
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./arxeps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Arx Project Team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
