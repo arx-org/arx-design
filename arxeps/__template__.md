@@ -1,4 +1,4 @@
-# AEP YYYY-XXX: Title Here
+# ArxEP YYYYXXX: Title Here
 
 <!--
 Authors Full Name 1 <full.name1 at organization.com>, Full Name2 <full.name2 at organization.com>
@@ -13,7 +13,7 @@ Status [Draft | Accepted | Final | Deferred | Rejected | Withdrawn | Superseded 
 <!--
 Type: [Standards Track | Informational | Process]
 -->
-**Type** Informational
+**Type** Standards Track
 
 **Created** 2021-02-23
 
@@ -75,14 +75,18 @@ The Proposal section ...
 
 ## Alternatives
 
-<!--
-The Alternatives section ...
--->
+<!-- Some alternative proposals-->
 ...
 
 ### Alternative 1
 
 ...
+
+## Future works
+
+<!-- Some alternative proposals for the future-->
+...
+
 
 ## Copyright
 
@@ -91,15 +95,17 @@ This document has been placed in the public domain.
 ## References
 
 <!--
-In the references section ...
+links to the references used in the text
+note: use markdown references
 -->
-
-* Title: url
+<!-- example: -->
+* [Arx Design][arx-design]
 
 ## Changelog
 
-<!--
-In the Changelog ...
--->
+- 2021-01-01: Creation of this proposal
 
-...
+<!-- markdown references -->
+<!-- example:-->
+
+[arx-design]: https://arx-org.github.io/arx-design
