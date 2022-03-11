@@ -7,5 +7,5 @@ parts:
 
   - caption: Arx Enhancement Proposal
     chapters:
-      - file: aeps/aep-2021000-aep-template.md
-      - file: aeps/aep-2022001-docstrings-and-comments
+      - file: arxeps/arxep-2021000-arxep-template.md
+      - file: arxeps/arxep-2022001-docstrings-and-comments

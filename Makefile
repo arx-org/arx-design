@@ -1,6 +1,7 @@
 .DEFAULT_GoAL := help
 
 MAKEFILE_DIR = $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
+BROWSER:=google-chrome
 
 define PRINT_HELP_PYSCRIPT
 import re, sys
@@ -31,3 +32,6 @@ clean: ## remove build artifacts, Python file artifacts, cache, etc
 docs: ## generate documentation
 	rm -rf _build/*
 	jupyter-book build .
+
+docs-open:
+	$(BROWSER) ./_build/html/index.html

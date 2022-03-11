@@ -1,8 +1,8 @@
-# **ArxEP** 1 - **Arx** Implementation Proposal Template
+# **ArxEP** 1 - **Arx** Enhancement Proposal Template
 
-* **Author** ...
-* **Status**: Approved <!-- Approved, Draft, Active, Denied -->
-* **Type**: Informational <!-- Standards Track | Informational | Process -->
+* **Author** Ivan Ogasawara <ivan.ogasawara at gmail.com>
+* **Status**: Accepted
+* **Type**: Informational
 * **Created**: 2021-01-27
 * **Resolution**: None
 
@@ -90,7 +90,7 @@ writing the ArxEP, leads the discussion around it, and tries to create
 consensus around it.
 
 The author of an **ArxEP** should fork the repository and create a pull request
-with a new **ArxEP** document based on the [ArxEP template](ArxEP-template).
+with a new **ArxEP** document based on the [ArxEP template][arxep-template].
 The **ArxEP** document may be named `arxep-YYYYXXX.md` until a number is assigned.
 
 One of the core **Arx** developers will then assign a number to the ArxEP, in
@@ -229,3 +229,8 @@ BSD-3-Clause
 This Enhancement Proposal Template was based other templates, such as:
 Sympy Enhancement Proposal (SymEP),
 Numpy Enhancement Proposal (NEP), Python Enhancement Proposal (PEP).
+
+
+<!-- markdown references -->
+
+[arxep-template]: https://github.com/arx-org/arx-design/blob/main/arxeps/__template__.md
