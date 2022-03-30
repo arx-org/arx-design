@@ -108,4 +108,4 @@ note: use markdown references
 <!-- markdown references -->
 <!-- example:-->
 
-[arx-design]: https://arx-org.github.io/arx-design
+[arx-design]: https://arxlang.github.io/arx-design

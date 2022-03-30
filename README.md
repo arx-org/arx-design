@@ -77,7 +77,7 @@ implementation of the change.
 Discussions around a proposed change may begin informally on the mailing list
 or Arx issue tracker. However, once it is decided that the formal ArxEP
 process is desired for a change, the discussion should move to the
-[ArxEP repository](https://github.com/arx-org/arx-design) on GitHub.
+[ArxEP repository](https://github.com/arxlang/arx-design) on GitHub.
 
 Every **ArxEP** must have a champion. This is a person who is responsible for
 writing the ArxEP, leads the discussion around it, and tries to create
@@ -89,8 +89,8 @@ The **ArxEP** document may be named `ArxEP-YYYY-XX.md` until a number is assigne
 One of the core Arx developers will then assign a number to the ArxEP, in
 which case `XXXX` should be replaced with the number with leading 0s. The
 person who assigns the number should also update the
-[README](https://github.com/arx-org/arx-design/blob/main/README.md) of the main
-[ArxEP repository](https://github.com/arx-org/arx-design) to list that number.
+[README](https://github.com/arxlang/arx-design/blob/main/README.md) of the main
+[ArxEP repository](https://github.com/arxlang/arx-design) to list that number.
 Numbers should be assigned to **ArxEPs** as soon as it is determined that they
 are a legitimate proposal. If an **ArxEP** ends up being rejected or postponed, it
 keeps its number, as rejection or postponement status is still a discussion
@@ -99,7 +99,7 @@ assigned in increasing numeric order.
 
 Discussion on the **ArxEP** should then continue on the **ArxEP** pull request.
 Discussions may also take place in other places, such as [GitHub
-discussions](https://github.com/arx-org/arx-design/discussions) or the [mailing
+discussions](https://github.com/arxlang/arx-design/discussions) or the [mailing
 list](http://groups.google.com/group/Arx). All discussions should be
 cross-referenced in the "Discussions" section of the **ArxEP** document.
 
@@ -167,7 +167,7 @@ proper—again, discussion may be picked up again with a new pull request.
 
 Once an **ArxEP** is Accepted by consensus of all interested contributors, an
 topic should be created to the
-[Arx GitHub Discussions](https://github.com/arx-org/arx/discussions)
+[Arx GitHub Discussions](https://github.com/arxlang/arx/discussions)
 with a subject like:
 
     Proposal to accept **ArxEP** #<number>: <title>
