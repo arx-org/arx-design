@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>ArxEP 2022001: Docstring and comments &#8212; Arx Language</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,30 +20,30 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -59,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -114,92 +131,197 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/arxeps/arxep-2022001-docstrings-and-comments.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/arxlang/arx-design"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/arxlang/arx-design/issues/new?title=Issue%20on%20page%20%2Farxeps/arxep-2022001-docstrings-and-comments.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/arxlang/arx-design/edit/main/arxeps/arxep-2022001-docstrings-and-comments.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/arxlang/arx-design"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/arxlang/arx-design/issues/new?title=Issue%20on%20page%20%2Farxeps/arxep-2022001-docstrings-and-comments.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/arxlang/arx-design/edit/main/arxeps/arxep-2022001-docstrings-and-comments.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/arxeps/arxep-2022001-docstrings-and-comments.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#abstract">
    Abstract
@@ -273,12 +395,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>ArxEP 2022001: Docstring and comments</h1>
@@ -368,11 +489,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="arxep-2022001-docstring-and-comments">
-<h1>ArxEP 2022001: Docstring and comments<a class="headerlink" href="#arxep-2022001-docstring-and-comments" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="arxep-2022001-docstring-and-comments">
+<h1>ArxEP 2022001: Docstring and comments<a class="headerlink" href="#arxep-2022001-docstring-and-comments" title="Permalink to this headline">#</a></h1>
 <!--
 Authors: Full Name 1 <full.name1 at organization.com>, Full Name2 <full.name2 at organization.com>
 -->
@@ -390,8 +512,8 @@ Type: [Standards Track | Informational | Process]
 resolution: url to discussion (required for Accepted | Rejected | Withdrawn)
 -->
 <p><strong>Resolution</strong></p>
-<div class="section" id="abstract">
-<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">#</a></h2>
 <!--
 The Abstraction section ...
 -->
@@ -401,17 +523,17 @@ Now, it needs to be udpated according to the needs of Arx.</p>
 and docstrings (comments used for documentation).</p>
 <p>The current proposal presents some approaches used by other languages, and it
 ends with a proposal for <strong>Arx</strong>.</p>
-</div>
-<div class="section" id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
 <p>Every programming language has its own approach for
 <a class="reference external" href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">comments</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Docstring">docstrings</a>.
 Commonly, comments could be <strong>Inline</strong> or <strong>Multiline</strong>.</p>
 <p><strong>docstrings</strong> is similar to comments, but they used for documentation.</p>
 <p>In this section, it is presented some approaches used for comments and
 docstrings.</p>
-<div class="section" id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h3>
 <p>As mentioned before, commonly, comments could be <strong>inline</strong> or <strong>multiline</strong>.</p>
 <p>Inline comments, usually can be used in the beginning of a line
 (all the line would be considered as a comment) or it can be used at the end
@@ -426,11 +548,11 @@ of a line.</p>
 <p>Multiline comments, also known as <strong>comment block</strong>, can be used to create a
 block of comments. It is very useful when creating a comment with a long text.</p>
 <p>Some examples of <strong>multiline</strong> comment:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* comment block in one line */</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* comment block in one line */</span><span class="w"></span>
 
 <span class="cm">/*</span>
 <span class="cm"> * Multiline comment</span>
-<span class="cm"> */</span>
+<span class="cm"> */</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Before defining the <strong>comments</strong> for <strong>Arx</strong>, it is helpful to check first
@@ -468,9 +590,9 @@ FreeBASIC and Gambas</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'''</span></code> and <code class="docutils literal notranslate"><span class="pre">'''</span></code>: Python</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">```</span></code> and <code class="docutils literal notranslate"><span class="pre">```</span></code>: Markdown</p></li>
 </ul>
-</div>
-<div class="section" id="docstrings">
-<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h3>
 <p><strong>Docstrings</strong> are very similar to <strong>comments</strong>, but it is used for
 generating documentation. Besides the characters used to start a docstring,
 every language also has standards to define the information for the
@@ -492,10 +614,10 @@ standards to write the docstrings.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">##[</span></code> and <code class="docutils literal notranslate"><span class="pre">]##</span></code>: Nim</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">(documentation</span> <span class="pre">#</span></code> and <code class="docutils literal notranslate"><span class="pre">'&lt;some</span> <span class="pre">name&gt;</span> <span class="pre">'function)</span> <span class="pre">=&gt;</span> <span class="pre">&quot;&lt;some</span> <span class="pre">output&gt;&quot;</span></code>: LISP</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="proposal">
-<h2>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="proposal">
+<h2>Proposal<a class="headerlink" href="#proposal" title="Permalink to this headline">#</a></h2>
 <p><strong>Arx</strong> aims to keep the syntaxes as similar as possible to the languages
 more used nowadays, such as <strong>Python</strong> and <strong>C++</strong>. Additionally, it considers
 <strong>Yaml</strong> format as a very useful way to write configuration and define a
@@ -511,11 +633,11 @@ data structure.</p>
 <li><p>Docstrings</p></li>
 </ul>
 <p><strong>Conventions</strong></p>
-<div class="section" id="id1">
-<h3>Comments<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h3>Comments<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>This section proposes the inline and multiline comment for <strong>Arx</strong>.</p>
-<div class="section" id="inline-comments">
-<h4>Inline comments<a class="headerlink" href="#inline-comments" title="Permalink to this headline">¶</a></h4>
+<section id="inline-comments">
+<h4>Inline comments<a class="headerlink" href="#inline-comments" title="Permalink to this headline">#</a></h4>
 <p>Inline comments should use <code class="docutils literal notranslate"><span class="pre">#</span></code>, and it should work in the same way that was
 implement for <code class="docutils literal notranslate"><span class="pre">Python</span></code> (and other languages as well).</p>
 <p>It can be added in the beginning of a line, or it can be used at the end of a
@@ -526,9 +648,9 @@ line. For example:</p>
 
 </pre></div>
 </div>
-</div>
-<div class="section" id="multiline-comments">
-<h4>Multiline comments<a class="headerlink" href="#multiline-comments" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="multiline-comments">
+<h4>Multiline comments<a class="headerlink" href="#multiline-comments" title="Permalink to this headline">#</a></h4>
 <p>Multiline comments should use triple backsticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) at the beginning of the comment block
 and triple backsticks at the end.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>```
@@ -555,10 +677,10 @@ This doesn&#39;t look bad, but it is more verbose.
 </div>
 <p>So, the triple backsticks would work as a sugar syntax to
 triple backsticks with <code class="docutils literal notranslate"><span class="pre">comment</span></code> modifier.</p>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>Docstrings<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="id2">
+<h3>Docstrings<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Similar to the <strong>multiline comments</strong>, <strong>docstring</strong> should use triple backsticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) at the beginning of the comment block
 and triple backsticks at the end.</p>
 <p>The docstrings will be used (and required) for <strong>functions</strong> (in the future, also for
@@ -644,10 +766,10 @@ function sum(a: int, b: int) -&gt; int:
 </pre></div>
 </div>
 <p>The docstrings should be required at compile-time, and the attribute <code class="docutils literal notranslate"><span class="pre">title</span></code> is required. The other attributes are optional.</p>
-</div>
-</div>
-<div class="section" id="future-works">
-<h2>Future works<a class="headerlink" href="#future-works" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="future-works">
+<h2>Future works<a class="headerlink" href="#future-works" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Additionally, the docstring for parameters description could be
 defined inline inside the function signature.</p></li>
@@ -667,27 +789,27 @@ be available inside the code. For example:</p></li>
 </pre></div>
 </div>
 <p>These topics should be discussed for future implementation.</p>
-</div>
-<div class="section" id="copyright">
-<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">#</a></h2>
 <p>This document has been placed in the public domain.</p>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Comment_(computer_programming)">Comments</a></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Docstring">Docstrings</a></p></li>
 <li><p><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpy Docstrings Format</a></p></li>
 </ul>
-</div>
-<div class="section" id="changelog">
-<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>2021-03-24: Creation of the document</p></li>
 </ul>
 <!-- markdown references -->
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -711,9 +833,11 @@ be available inside the code. For example:</p></li>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="arxep-2021000-arxep-template.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -722,24 +846,28 @@ be available inside the code. For example:</p></li>
         </div>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Arx Project Team<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Arx Project Team<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
