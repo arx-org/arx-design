@@ -1,4 +1,4 @@
-# Arx Design
+# Arx Proposals
 
 This repository aims to server as focal point to discuss and to store
 enhancement proposals.
